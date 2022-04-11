@@ -1,0 +1,336 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*,
+*.before,
+*.after {
+    box-sizing: border-box;
+}
+:focus,
+:active {
+    outline: none;
+}
+a:focus,
+a:active {
+    outline: none;
+}
+nav,
+footer,
+header,
+aside {
+    display: block;
+}
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+
+    font-family: "Dosis", sans-serif;
+    line-height: 30px;
+}
+input,
+button,
+textarea {
+    font-family: inherit;
+}
+input::-ms-clear {
+    display: none;
+}
+button {
+    cursor: pointer;
+}
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+a,
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+ul li {
+    list-style: none;
+}
+img {
+    vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+/* ------------------------------- */
+a {
+    color: #fff;
+}
+
+.wrapper {
+    min-height: 100%;
+    background: url(../img/Skyrim_bg.jpg) 0 0 / cover no-repeat fixed;
+    display: grid;
+    display: -moz-grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(100px, auto) 1fr minmax(70px, auto);
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    font-family: "Dosis", sans-serif;
+    font-family: "Playfair Display", serif;
+    font-family: "Texturina", serif;
+    font-size: 20px;
+
+    color: #fff;
+}
+.header {
+    grid-area: header;
+    padding: 15px;
+    background: rgba(50, 59, 61, 0.795);
+    display: grid;
+    align-items: center;
+    grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+    border-bottom: 1px solid #fff;
+}
+.header__logo {
+    max-width: 70px;
+    grid-column: 2/3;
+}
+.header__logo img {
+    width: 100%;
+}
+.header__menu {
+    grid-column: 3/4;
+}
+.header__list {
+    display: grid;
+    column-gap: 15%;
+    grid-auto-flow: column;
+    justify-content: end;
+}
+.header__list a {
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    position: relative;
+}
+.header__list a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    background: #fff;
+    height: 1px;
+    width: 0px;
+    left: 50%;
+    transition: 0.5s ease;
+}
+.header__list a:hover::after {
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.main {
+    grid-area: main;
+    padding: 30px 15px;
+}
+.side__menu {
+    position: sticky;
+    top: 10px;
+    left: 0;
+    margin: 0;
+}
+.side {
+    position: relative;
+    padding: 15px;
+    background: rgba(63, 76, 80, 0.63);
+}
+.side__list {
+    font-weight: 600;
+}
+.side__list li {
+    padding-bottom: 15px;
+}
+.content {
+}
+.content__title {
+    line-height: 50px;
+    text-shadow: 0 0 10px rgba(50, 59, 61, 0.795);
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    padding: 15px;
+}
+.content__gallery {
+    margin-bottom: 30px;
+}
+.gallery__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+}
+.gallery__item {
+    position: relative;
+    padding: 0 0 90% 0;
+}
+.gallery__item img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.gallery__item_big {
+}
+@media (min-width: 540px) {
+    .gallery__item_big {
+        grid-row: span 2;
+        grid-column: span 2;
+    }
+}
+.sword {
+}
+.gallery__title,
+.sword__title {
+    font-size: 30px;
+    font-weight: 100;
+    padding: 10px 50px;
+}
+@media (min-width: 769px) {
+    .main {
+        display: grid;
+        grid-template: 1fr / 1fr minmax(auto, 200px) minmax(auto, 1200px) 1fr;
+    }
+    .side {
+        grid-column: 2/3;
+    }
+    .content {
+        grid-column: 3/4;
+        padding-left: 30px;
+    }
+    .content__title {
+        font-size: 50px;
+        font-weight: 600;
+        text-align: center;
+        padding: 20px;
+    }
+    .gallery__title,
+    .sword__title {
+        font-size: 40px;
+        font-weight: 100;
+        padding: 20px 50px;
+    }
+}
+@media (min-width: 1024px) {
+    .main {
+        display: grid;
+        grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+    }
+}
+.sword__items {
+    display: grid;
+    row-gap: 50px;
+    column-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.sword__item {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template: auto 1fr minmax(40px, 1fr) / 1fr;
+
+    background: rgba(63, 76, 80, 0.39);
+    border-radius: 5px;
+    padding: 20px 0;
+    text-align: center;
+    border: 1px solid #fff;
+}
+.sword__image {
+    position: relative;
+    padding: 0 0 90% 0;
+    margin: 0 0 20px 0;
+}
+.sword__image img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+.sword__name {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+.sword__btn {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 100;
+    background: rgba(63, 76, 80, 0.945);
+    border-radius: 5px;
+    line-height: 40px;
+    justify-self: center;
+    padding: 10px;
+}
+.sword__btn:hover {
+    background: rgba(92, 105, 109, 0.74);
+    box-shadow: 1px 1px 20px rgb(255, 255, 255);
+}
+.sword__btn:active {
+    background: rgba(36, 50, 54, 0.842);
+    box-shadow: none;
+}
+.footer {
+    background: rgba(50, 59, 61, 0.795);
+    border-top: 1px solid #fff;
+    grid-area: footer;
+    display: grid;
+    padding: 15px;
+    grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+    align-items: center;
+}
+.footer__copy {
+}
+.footer__text {
+}
+@media (min-width: 550px) {
+    .footer__copy {
+        grid-column: 2/3;
+    }
+    .footer__text {
+        text-align: right;
+        grid-column: 3/4;
+    }
+}
+@media (max-width: 550px) {
+    .footer {
+        grid-template: 1fr 1fr / 1fr;
+        text-align: center;
+        font-size: 15px;
+    }
+    .footer__copy {
+        order: 2;
+    }
+    .footer__text {
+        order: 1;
+    }
+}
