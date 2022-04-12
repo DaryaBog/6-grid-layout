@@ -1,0 +1,116 @@
+.modal {
+}
+
+.modal.open .modal__overlay,
+.modal.open .modal__window {
+    opacity: 1;
+    z-index: 1000;
+}
+.modal.hide .modal__overlay,
+.modal.hide .modal__window {
+    opacity: 1;
+    z-index: 1000;
+}
+
+.modal.open .modal__overlay {
+    background: rgba(255, 255, 255, 0.645);
+}
+.modal.open .modal__window {
+    transform: translateY(100px);
+}
+
+.modal.hide .modal__overlay {
+    background: rgba(255, 255, 255, 0);
+}
+.modal.hide .modal__window {
+    transform: translateY(-200px);
+}
+
+.modal__overlay,
+.modal__window {
+    opacity: 0;
+    z-index: -1;
+}
+
+.modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0);
+
+    transition: background 0.2s ease-in;
+}
+.modal__window {
+    width: 600px;
+    background: rgb(50, 59, 61);
+    height: 200px;
+    margin: 0 auto;
+    color: #fff;
+    display: grid;
+    grid-template-rows: 50px 1fr 50px;
+    grid-template-areas: "header" "body" "footer";
+
+    transform: translateY(-200px);
+    transition: transform 0.4s ease-in;
+}
+.modal__header {
+    grid-area: header;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.645);
+}
+.modal__title {
+    font-size: 1.5rem;
+}
+.modal__close {
+    font-size: 2rem;
+    cursor: pointer;
+}
+.modal__body {
+    grid-area: body;
+    padding: 10px 20px;
+}
+.modal__footer {
+    display: flex;
+    justify-content: center;
+    grid-area: footer;
+    padding: 10px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.645);
+}
+
+button.modal__close {
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 15%;
+    margin: 0 auto;
+    background-color: rgb(50, 59, 61);
+    color: #fff;
+    /* border: none; */
+    border: 1px solid #fff;
+    /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.645); */
+}
+button.modal__close:hover {
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 15%;
+    margin: 0 auto;
+    background-color: rgb(50, 59, 61);
+    color: #fff;
+    /* border: none; */
+    border: 1px solid #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.645);
+}
+button.modal__close:active {
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 15%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.645);
+    color: rgb(50, 59, 61);
+    /* border: none; */
+    border: 1px solid #fff;
+    /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.645); */
+}
