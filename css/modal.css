@@ -46,7 +46,8 @@
 .modal__window {
     max-width: 600px;
     max-height: 400px;
-    background: rgba(63, 76, 80, 0.663);
+    /* working with opacity */
+    background: rgba(63, 76, 80, 0.745);
     border-radius: 5px;
     padding: 20px 0;
     text-align: center;
