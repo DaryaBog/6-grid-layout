@@ -1,16 +1,16 @@
 const $ = {}
-function _createModal(){
+function _createModal(options){
     const modal = document.createElement('div')
     modal.classList.add('modal')
     modal.insertAdjacentHTML('afterbegin', `
-    <div class="modal__overlay">
+    <div class="modal__overlay" data-close="true">
         <div class="modal__window">
             <div class="modal__header">
-                <span class="modal__title">Title</span>
-                <span class="modal__close">&times;</span>
+                <span class="modal__title">Information about the sword</span>
+                <span class="modal__close" data-close="true">&times;</span>
             </div>
-            <div class="modal__body"></div>
-            <div class="modal__footer"><button class="modal__close">Ok</button></div>
+            <div class="modal__body" data-content>
+            </div>
         </div>
     </div>
     `)
@@ -20,11 +20,13 @@ function _createModal(){
 
 $.modal = function(options){
     const ANIMATION_SREED = 400
-    let closing = folse
-
+    let closing = false
+    let destroyed = false
     const $modal = _createModal(options)
-    return{
+
+    const modal = {
         open(){
+            destroyed && console.log('Modal is destroyed')
             !closing && $modal.classList.add('open')
         },
         close(){
@@ -36,7 +38,23 @@ $.modal = function(options){
                 closing = false
             }, ANIMATION_SREED)
         },
-        destroy(){},
-
     }
+
+    const listener = event => {
+        if (event.target.dataset.close){
+            modal.close()
+        }
+    }
+
+    $modal.addEventListener('click', listener)
+    return Object.assign(modal,{
+        destroy(){
+            $modal.parentNode.removeChild($modal)
+            $modal.removeEventListener('click', listener)
+            destroyed = true
+        },
+        setContent(html){
+            $modal.querySelector('[data-content]').innerHTML = html
+        },
+    })
 }
